@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :dashboard 
   resources :my_books
   resources :read_books
-  
+
 end
