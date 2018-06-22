@@ -21,7 +21,7 @@ class SearchController < ApplicationController
     
     
     def search 
-        @books = GoogleBooks.search(params[:search])
+        @books = GoogleBooks.search(params[:search]).first(3)
         render :index
     end
     

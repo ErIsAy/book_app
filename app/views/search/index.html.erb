@@ -10,11 +10,21 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-4">
+    
        <% if @books %>
-           Number books: <%= @books.count %>
+         <% @books.each do |book| %>
+          <div class="col-4">
+           <%= image_tag book.image_link %>
+           Title: <%= book.title %><br>
+           Author: <%= book.authors %><br>
+           Description: <%= book.description.truncate_words(200, separator: '') %>
+           <%= link_to 'read more', book.description %><br>
+           <br>
+           <%= button_to 'Add to My Books' %>
+           </div>
+           <% end %>
        <% end %>
-    </div>
+    
     <div class="col-4"></div>
     <div class="col-4"></div>
 </div>
