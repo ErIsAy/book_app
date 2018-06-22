@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_06_22_191139) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_06_22_191139) do
     t.string "isbn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
   end
 
   create_table "read_books", force: :cascade do |t|
