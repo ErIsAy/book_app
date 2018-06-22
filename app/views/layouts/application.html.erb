@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
     <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
       <div class="container">
@@ -46,6 +46,7 @@
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
+      <%= custom_bootstrap_flash %>
       <%= yield %>
     </div>
   </body>
