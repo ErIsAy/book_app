@@ -17,7 +17,7 @@
            <%= image_tag book.image_link %>
            Title: <%= book.title %><br>
            Author: <%= book.authors %><br>
-           Description: <%= book.description.truncate_words(200, separator: '') %>
+           Description: <%= book.description ? book.description.truncate_words(200, separator: '') : 'N/A' %>
            <%= link_to 'read more', book.description %><br>
            <br>
            <%= button_to 'Add to My Books' %>
