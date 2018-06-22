@@ -7,14 +7,14 @@ class DashboardController < ApplicationController
   end
 
   def update
-    @read_books = ReadBook.find(params[:id])
+    @my_books = MyBook.find(params[:id])
     # @read_books.update_attributes(params[:id])
-    @read_books.update(read_books_params)
-    respond_with @read_books
+    @my_books.update(my_books_params)
+    respond_with @my_books
   end
 
   private
-  def read_books_params
-    params.require(:read_books).permit(:status)
+  def my_books_params
+    params.require(:my_books).permit(:status)
   end
 end

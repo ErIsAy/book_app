@@ -22,36 +22,19 @@
               <span class="bold">Description:</span><%= book.description[0,100] %><%= link_to '...[Read More]', dashboard_index_path %>
             </div>
             <div>
-              <span class="bold">Status: </span><%= best_in_place book, :status, type: :select, collection: [["", "Unspecified"], ["To Read", "To Read"], ["In Progress", "In Progress"]] %>
+              <br />
+              <span class="bold">Status: </span><%= best_in_place book, :status, type: :select, collection: [["", "Unspecified"], ["To Read", "To Read"], ["In Progress", "In Progress"]] %> <%= image_tag image_path('edit.png'), alt: 'edit image' %><br />
+              <small>Click status above to edit</small>
             </div>
 
             <div>
-              <span class="bold">Status: </span><%= best_in_place book, :status, type: :checkbox, collection: {"To Read": "To Read", "In Progress": "In Progress"} %>
-              <!-- [["To Read", "To Read"], ["In Progress", "In Progress"]] %> -->
+              <a href="<%= new_read_book_path %>"><button class="btn btn-outline-secondary dashbaord-btn">Finished Reading</button></a>
             </div>
 
             <div>
-              <%= form_for book do |f| %>
-
-                <div>
-                  <% f.label :status %><span class="bold">Status:</span>  
-                  <%= f.select :status, ['To Read', 'In Progress', 'Finished'] %>
-                </div>
-                
-                <div>
-                  <%= f.submit %>
-                </div>
-
-                <div>
-                  <%= link_to 'Delete', book, class: 'delete-read_book' %>
-                </div>
-
-              <% end %>
+              <a href="<%= new_read_book_path %>"><button class="btn btn-outline-secondary dashbaord-btn">Delete</button></a>
             </div>
-
-            <div>
-              <a href="<%= new_read_book_path %>"><button class="btn btn-outline-secondary">Finished Reading</button></a>
-            </div>
+            
 
           <% end %>
         </div>
@@ -79,7 +62,7 @@
               <span class="bold">Description:</span><%= book.description[0,100] %><%= link_to '...[Read More]', dashboard_index_path %>
             </div>
             <div>
-              {BUTTON-move_back_to_my_books}
+              <a href="<%= dashboard_index_path %>"><button class="btn btn-outline-secondary dashboard-btn">Unread</button></a>
             </div>
             <div>
               {BUTTON-delete}
