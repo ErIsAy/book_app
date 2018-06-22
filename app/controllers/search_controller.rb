@@ -42,14 +42,8 @@ class SearchController < ApplicationController
 
     # my_books_controller
      def create_from_book_history
-       book_history = BookHistory.find(params[:id])
-       MyBook.create(
-         name: book_history.name,
-         author: book_history.author,
-         description: book_history.description,
-         image_url: book_history.image_url,
-         isbn: book_history.isbn
-    
-       )
+
+         
      end
+    
 end
