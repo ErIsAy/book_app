@@ -5,6 +5,7 @@ ruby '2.5.1'
 
 gem 'devise'
 gem 'googlebooks'
+gem 'best_in_place', '~> 3.0.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use postgresql as the database for Active Record

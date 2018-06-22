@@ -13,23 +13,46 @@
         <div class="books-div">
           <% @books.each do |book| %>
             <div>
-              Title: <%= book.title %>
+              <span class="bold">Title: <span class="italic"><%= book.title %></span></span>
             </div>
             <div>
-              Author: <%= book.author %>
+              <span class="bold">Author:</span> <%= book.author %>
             </div>
             <div>
-              Description: <%= book.description %>
+              <span class="bold">Description:</span><%= book.description[0,100] %><%= link_to '...[Read More]', dashboard_index_path %>
             </div>
             <div>
-              Status: {to_read/in_progress}
+              <span class="bold">Status: </span><%= best_in_place book, :status, type: :select, collection: [["", "Unspecified"], ["To Read", "To Read"], ["In Progress", "In Progress"]] %>
             </div>
+
             <div>
-              {BUTTON-add_to_read}
+              <span class="bold">Status: </span><%= best_in_place book, :status, type: :checkbox, collection: {"To Read": "To Read", "In Progress": "In Progress"} %>
+              <!-- [["To Read", "To Read"], ["In Progress", "In Progress"]] %> -->
             </div>
+
             <div>
-              {BUTTON-delete}
+              <%= form_for book do |f| %>
+
+                <div>
+                  <% f.label :status %><span class="bold">Status:</span>  
+                  <%= f.select :status, ['To Read', 'In Progress', 'Finished'] %>
+                </div>
+                
+                <div>
+                  <%= f.submit %>
+                </div>
+
+                <div>
+                  <%= link_to 'Delete', book, class: 'delete-read_book' %>
+                </div>
+
+              <% end %>
             </div>
+
+            <div>
+              <a href="<%= new_read_book_path %>"><button class="btn btn-outline-secondary">Finished Reading</button></a>
+            </div>
+
           <% end %>
         </div>
 
@@ -47,14 +70,13 @@
       <% if @read_books!=[] %>        
         <div class="read-books-div">
           <% @read_books.each do |book| %>
-            <div>
-              Title: <%= book.title %>
+            <span class="bold">Title: <span class="italic"><%= book.title %></span></span>
             </div>
             <div>
-              Author: <%= book.author %>
+              <span class="bold">Author:</span> <%= book.author %>
             </div>
             <div>
-              Description: <%= book.description %>
+              <span class="bold">Description:</span><%= book.description[0,100] %><%= link_to '...[Read More]', dashboard_index_path %>
             </div>
             <div>
               {BUTTON-move_back_to_my_books}
