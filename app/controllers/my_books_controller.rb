@@ -15,7 +15,6 @@ class MyBooksController < ApplicationController
 
   def update
     @my_books = MyBook.find(params[:id])
-    # @read_books.update_attributes(params[:id])
     @my_books.update(my_books_params)
     respond_with @my_books
   end
