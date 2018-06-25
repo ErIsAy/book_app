@@ -1,39 +1,45 @@
 <div class="row">
-  
+
   <!-- user info -->
-  <div class="col-2">  
-    <h4>Welcome back, <%= @user.first_name %>!</h4>
+  <div class="col-2">
+    <h4>Welcome back,
+      <%= @user.first_name %>!</h4>
   </div>
-  
+
   <!-- my books -->
   <div class="col-5">
     <h2>My Books</h2>
-    
-      <% if @books!=[] %>        
-        <div class="books-div">
-          <% @books.each do |book| %>
+
+    <% if @books!=[] %>
+      <div class="books-div">
+        <% @books.each do |book| %>
+          <% next if book.status == 'Read' %>
 
             <div class="my-book-div">
 
               <div>
-                <span class="bold">Title: <span class="italic"><%= book.title %></span></span>
+                <span class="bold">Title:
+                  <span class="italic"><%= book.title %></span></span>
               </div>
               <div>
-                <span class="bold">Author:</span> <%= book.author %>
+                <span class="bold">Author:</span>
+                <%= book.author %>
               </div>
               <div>
                 <span class="bold">Description:</span><%= book.description[0,100] %><%= link_to '...[Read More]', dashboard_index_path %>
               </div>
               <div>
-                <br />
-                <span class="bold">Status: </span><%= best_in_place book, :status, type: :select, collection: [["", "Unspecified"], ["To Read", "To Read"], ["In Progress", "In Progress"]] %> <%= image_tag image_path("edit.png"), alt: "edit image" %><br />
+                <br/>
+                <span class="bold">Status:
+                </span><%= best_in_place book, :status, type: :select, collection: [["", "Unspecified"], ["To Read", "To Read"], ["In Progress", "In Progress"], ["Read","Read"]] %>
+                <%= image_tag image_path("edit.png"), alt: "edit image" %><br/>
                 <small>Click status above to edit</small>
               </div>
               <div>
-                <a href="<%= dashboard_index_path %>"><button class="btn btn-outline-success dashboard-btn">Finished Reading</button></a>
+                <!-- <a href="<%= dashboard_index_path %>"><button class="btn btn-outline-success dashboard-btn">Finished Reading</button></a> -->
                 <%= link_to 'Delete', book, class: 'delete-my-book btn btn-outline-danger dashboard-btn' %>
               </div>
-            
+
             </div>
 
           <% end %>
@@ -41,33 +47,43 @@
 
       <% else %>
         <h5>Oh no, your list is empty! Let's get started by searching for books.</h5>
-        <a href="<%= search_path %>"><button class="btn btn-outline-secondary">Search</button></a>
+        <a href="<%= search_path %>">
+          <button class="btn btn-outline-secondary">Search</button>
+        </a>
       <% end %>
 
-  </div>
+    </div>
 
-  <!-- read books -->
-  <div class="col-5">
-    <h2>Read Books</h2>
-
-      <% if @read_books!=[] %>        
+    <!-- read books -->
+    <div class="col-5">
+      <h2>Read Books</h2>
+      <% if @books!=[] %>
         <div class="read-books-div">
-          <% @read_books.each do |book| %>
+          <% @books.where(status: 'Read').each do |book| %>
 
-            <div class="read-book-div">
+            <div class="my-book-div">
 
               <div>
-              <span class="bold">Title: <span class="italic"><%= book.title %></span></span>
+                <span class="bold">Title:
+                  <span class="italic"><%= book.title %></span></span>
               </div>
               <div>
-                <span class="bold">Author:</span> <%= book.author %>
+                <span class="bold">Author:</span>
+                <%= book.author %>
               </div>
               <div>
                 <span class="bold">Description:</span><%= book.description[0,100] %><%= link_to '...[Read More]', dashboard_index_path %>
               </div>
               <div>
-                <a href="<%= dashboard_index_path %>"><button class="btn btn-outline-warning dashboard-btn">Unread</button></a>
-                <%= link_to 'Delete', book, class: 'delete-read-book btn btn-outline-danger dashboard-btn' %>
+                <br/>
+                <span class="bold">Status:
+                </span><%= best_in_place book, :status, type: :select, collection: [["", "Unspecified"], ["To Read", "To Read"], ["In Progress", "In Progress"], ["Read","Read"]] %>
+                <%= image_tag image_path("edit.png"), alt: "edit image" %><br/>
+                <small>Click status above to edit</small>
+              </div>
+              <div>
+                <!-- <a href="<%= dashboard_index_path %>"><button class="btn btn-outline-success dashboard-btn">Finished Reading</button></a> -->
+                <%= link_to 'Delete', book, class: 'delete-my-book btn btn-outline-danger dashboard-btn' %>
               </div>
 
             </div>
@@ -79,7 +95,6 @@
         <h5>Oh no, it looks like you haven't finished any books yet. Get to reading!</h5>
       <% end %>
 
+    </div>
+
   </div>
-
-
-</div>

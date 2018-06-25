@@ -1,15 +1,15 @@
 <div class="row">
-    <div class="col">
+  <div class="col">
 
-        <%= form_tag search_results_path, method: :get, id: "search-form" do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Books" %>
-        <%= submit_tag "Search" %>
-        <% end %>
-    </div>
+    <%= form_tag search_results_path, method: :get, id: "search-form" do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Books" %>
+    <%= submit_tag "Search" %>
+  <% end %>
+</div>
 </div>
 <div class="row">
 
-<% if @books %>
+<% if @books.present? %>
   <% @books.each do |book| %>
     <div class="col-4">
       <%= image_tag book.image_url %>
@@ -24,6 +24,9 @@
       <%= button_to 'Add to My Books', create_from_book_history_path(book.id) %>
     </div>
   <% end %>
+<%else%>
+  <p>
+    No new results to add.</p>
 <% end %>
 
 <div class="col-4"></div>
