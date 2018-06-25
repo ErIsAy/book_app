@@ -20,7 +20,7 @@
 //= require_tree .
 
 $(document).ready(function() {
-    /* Activating Best In Place */
+    // activating Best In Place
     jQuery(".best_in_place").best_in_place();
     $('.best_in_place').bind("ajax:success", function() {
         window.location.reload()
@@ -42,4 +42,5 @@ $(document).ready(function() {
         let elClassName = element.attr('class').split('-')
         return elClassName[elClassName.length - 1]
     }
+
 });

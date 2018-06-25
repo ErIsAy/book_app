@@ -1,2 +1,42 @@
-<%=@book.id%>
-<%=@book.title%>
+<div class="row show-book">
+    
+    <div class="col-12 m-1">
+      <h3 class="bold italic center"><%= @book.title %></h3>
+       <% unless @book.author.blank? %>
+        <h5 class="center"><span class="bold">by </span><%= @book.author %></h5>
+        <% end %>
+    </div>
+    <div class="col-12 center no-padding no-margin">
+      <%= image_tag @book.image_url, class: "show-img" %>
+    </div>
+    <div class="col-12 m-1">
+      <%= @book.description %>
+    </div>
+
+</div>
+
+<br />
+
+<div class="row">
+  <div class="col-12">
+    <h3 class="center italic">Book preview:</h3>
+    <script type="text/javascript" src="//www.google.com/books/jsapi.js"></script>
+
+    <script type="text/javascript">
+      google.books.load();
+      function alertNotFound() {
+        alert("Sorry, could not find a sample for this book!");
+      }
+      function initialize() {
+        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+        var isbn = document.getElementById('viewerCanvas').getAttribute('data-isbn');
+        viewer.load('ISBN:' + isbn, alertNotFound);
+      }
+
+      google.books.setOnLoadCallback(initialize);
+    </script>
+
+    <div id="viewerCanvas" class="book-viewer" data-isbn="<%= @book.isbn %>"></div>
+  
+  </div>
+</div>
