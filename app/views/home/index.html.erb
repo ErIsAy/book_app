@@ -7,14 +7,17 @@
   <!-- center row -->
   <div class="row">
     <% @books.each do |book| %>
-    <div class="col-md-4 col-md-offset-4 text-center">
-      <h2><%= book.author %></h2>
-      <img class="" src="<%=book.image_url%>" alt="Generic placeholder image" width="160" height="180">
-      <p><%= book.description ? book.description.truncate_words(60, separator: '') : 'N/A'%>.</p>
-      <p>
-        <a class="btn btn-secondary" href="#" role="button">View details »</a>
-      </p>
-    </div>
+      <div class="col-md-4 col-md-offset-4 text-center">
+        <h2><%= book.title %></h2>
+        <br>
+        <h4><%= book.author %></h4>
+        <img class="" src="<%=book.image_url%>" alt="Generic placeholder image" width="180" height="220">
+        <p><%= book.description ? book.description.truncate_words(60, separator: '') : 'N/A'%>.</p>
+        <p>
+          <%=link_to "Preview", book, class: "btn btn-secondary" %>
+          <!-- <a class="btn btn-secondary" href="#" role="button">View details »</a> -->
+        </p>
+      </div>
     <%end%>
   </div>
   <!-- Footer -->
@@ -22,48 +25,20 @@
 
 </div>
 
+<!-- <h1 class="mt-5">Home Index</h1> <div class="mt-5"> -->
 
+<!-- Header -->
+<!-- <div class="row"></div> -->
 
+<!-- center row -->
+<!-- <div class="row"> <div class="col-md-4 col-md-offset-4 text-center"> <h2>Book 1</h2> <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140"
+height="140"> <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit
+amet risus.</p> <p> <a class="btn btn-secondary" href="#" role="button">View details »</a> </p> </div> <div class="col-md-4 col-md-offset-4 text-center"> <h2>Book 2</h2> <img class="rounded-circle"
+src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140"> <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id
+ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p> <p> <a class="btn btn-secondary" href="#" role="button">View details »</a> </p> </div> <div
+class="col-md-4 col-md-offset-4 text-center"> <h2>Book 3</h2> <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140"> <p>Donec sed
+odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p> <p> <a
+class="btn btn-secondary" href="#" role="button">View details »</a> </p> </div> </div> -->
 
-
-<!-- <h1 class="mt-5">Home Index</h1>
-<div class="mt-5"> -->
-
-  <!-- Header -->
-  <!-- <div class="row"></div> -->
-
-  <!-- center row -->
-  <!-- <div class="row">
-
-    <div class="col-md-4 col-md-offset-4 text-center">
-      <h2>Book 1</h2>
-      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p>
-        <a class="btn btn-secondary" href="#" role="button">View details »</a>
-      </p>
-    </div>
-
-    <div class="col-md-4 col-md-offset-4 text-center">
-      <h2>Book 2</h2>
-      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p>
-        <a class="btn btn-secondary" href="#" role="button">View details »</a>
-      </p>
-    </div>
-    <div class="col-md-4 col-md-offset-4 text-center">
-      <h2>Book 3</h2>
-      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p>
-        <a class="btn btn-secondary" href="#" role="button">View details »</a>
-      </p>
-    </div>
-
-  </div> -->
-
-  <!-- Footer -->
-  <!-- <div class="row"></div>
-
-</div> -->
+<!-- Footer -->
+<!-- <div class="row"></div> </div> -->

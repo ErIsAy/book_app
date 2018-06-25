@@ -4,10 +4,8 @@
   <div class="col-md-6 col-md-offset-4">
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "card mt-5"}) do |f| %>
-    <div class="card-header">
-      <h2>Log In</h2>
-    </div>
     <div class="card-body">
+      <%= image_tag image_path("logo.png"), alt: "lololol",:class => "width-300 mx-auto d-block" %><br/>
 
       <div class="field form-group">
         <%= f.label :email %><br/>
