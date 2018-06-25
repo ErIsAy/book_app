@@ -1,2 +1,0 @@
-class ReadBook < ApplicationRecord
-end
