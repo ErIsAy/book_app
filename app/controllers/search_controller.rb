@@ -40,12 +40,6 @@ class SearchController < ApplicationController
       render :index
   end
 
-  def destroy
-    ReadBook.destroy(params[:id])
-    render json: {status: 'success', message: 'Book was successfully removed'}
-  end
-
-
   # my_books_controller
    def create_from_book_history
 
