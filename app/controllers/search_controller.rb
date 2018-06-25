@@ -25,7 +25,9 @@ class SearchController < ApplicationController
 
       @books = [];
 
+
       google_books.each do |book|
+        # next if BookHistory.where(isbn: book.isbn).present?
         book_history = BookHistory.create(
           title: book.title,
           author: book.authors,
@@ -33,7 +35,6 @@ class SearchController < ApplicationController
           image_url: book.image_link,
           isbn: book.isbn
         )
-
         @books << book_history
       end
       render :index
@@ -48,7 +49,7 @@ class SearchController < ApplicationController
   # my_books_controller
    def create_from_book_history
 
-       
+
    end
-    
+
 end
