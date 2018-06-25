@@ -10,7 +10,7 @@
       <div class="col-md-4 col-md-offset-4 text-center">
         <h2><%= book.title %></h2>
         <br>
-        <h4><%= book.author %></h4>
+        <p><%= book.author %></p>
         <img class="" src="<%=book.image_url%>" alt="Generic placeholder image" width="180" height="220">
         <p><%= book.description ? book.description.truncate_words(60, separator: '') : 'N/A'%>.</p>
         <p>

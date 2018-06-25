@@ -34,6 +34,12 @@
           </a>
         </li>
         <%if user_signed_in?%>
+          <li class="nav-item active">
+            <a class="nav-link" href="<%= search_path %>">Search
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
           <li class="nav-item"><%= link_to t('auth.sign_out'), destroy_user_session_path, method: 'delete', class: 'btn btn-outline-light' %></li>
 
         <%else%>

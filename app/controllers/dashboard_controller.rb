@@ -2,8 +2,9 @@ class DashboardController < ApplicationController
   respond_to :html, :json
   def index
     @user = current_user
-    @books = MyBook.all.order(:created_at)
     @read_books = ReadBook.all.order(:created_at)
+
+    @books = current_user.my_books
   end
 
   def update
@@ -14,6 +15,7 @@ class DashboardController < ApplicationController
   end
 
   private
+
   def my_books_params
     params.require(:my_books).permit(:status)
   end
