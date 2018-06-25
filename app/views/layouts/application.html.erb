@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
     <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
       <div class="container">
@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse text-center" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Dashboard
+              <a class="nav-link" href="<%= link_to 'Dashboard' %>">Dashboard
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -46,6 +46,7 @@
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
+      <%= custom_bootstrap_flash %>
       <%= yield %>
     </div>
   </body>

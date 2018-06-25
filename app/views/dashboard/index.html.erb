@@ -12,29 +12,29 @@
       <% if @books!=[] %>        
         <div class="books-div">
           <% @books.each do |book| %>
-            <div>
-              <span class="bold">Title: <span class="italic"><%= book.title %></span></span>
-            </div>
-            <div>
-              <span class="bold">Author:</span> <%= book.author %>
-            </div>
-            <div>
-              <span class="bold">Description:</span><%= book.description[0,100] %><%= link_to '...[Read More]', dashboard_index_path %>
-            </div>
-            <div>
-              <br />
-              <span class="bold">Status: </span><%= best_in_place book, :status, type: :select, collection: [["", "Unspecified"], ["To Read", "To Read"], ["In Progress", "In Progress"]] %> <%= image_tag image_path('edit.png'), alt: 'edit image' %><br />
-              <small>Click status above to edit</small>
-            </div>
 
-            <div>
-              <a href="<%= new_read_book_path %>"><button class="btn btn-outline-secondary dashboard-btn">Finished Reading</button></a>
-            </div>
+            <div class="my-book-div">
 
-            <div>
-              <a href="<%= new_read_book_path %>"><button class="btn btn-outline-secondary dashboard-btn">Delete</button></a>
-            </div>
+              <div>
+                <span class="bold">Title: <span class="italic"><%= book.title %></span></span>
+              </div>
+              <div>
+                <span class="bold">Author:</span> <%= book.author %>
+              </div>
+              <div>
+                <span class="bold">Description:</span><%= book.description[0,100] %><%= link_to '...[Read More]', dashboard_index_path %>
+              </div>
+              <div>
+                <br />
+                <span class="bold">Status: </span><%= best_in_place book, :status, type: :select, collection: [["", "Unspecified"], ["To Read", "To Read"], ["In Progress", "In Progress"]] %> <%= image_tag image_path("edit.png"), alt: "edit image" %><br />
+                <small>Click status above to edit</small>
+              </div>
+              <div>
+                <a href="<%= dashboard_index_path %>"><button class="btn btn-outline-success dashboard-btn">Finished Reading</button></a>
+                <%= link_to 'Delete', book, class: 'delete-my-book btn btn-outline-danger dashboard-btn' %>
+              </div>
             
+            </div>
 
           <% end %>
         </div>
@@ -53,20 +53,25 @@
       <% if @read_books!=[] %>        
         <div class="read-books-div">
           <% @read_books.each do |book| %>
-            <span class="bold">Title: <span class="italic"><%= book.title %></span></span>
+
+            <div class="read-book-div">
+
+              <div>
+              <span class="bold">Title: <span class="italic"><%= book.title %></span></span>
+              </div>
+              <div>
+                <span class="bold">Author:</span> <%= book.author %>
+              </div>
+              <div>
+                <span class="bold">Description:</span><%= book.description[0,100] %><%= link_to '...[Read More]', dashboard_index_path %>
+              </div>
+              <div>
+                <a href="<%= dashboard_index_path %>"><button class="btn btn-outline-warning dashboard-btn">Unread</button></a>
+                <%= link_to 'Delete', book, class: 'delete-read-book btn btn-outline-danger dashboard-btn' %>
+              </div>
+
             </div>
-            <div>
-              <span class="bold">Author:</span> <%= book.author %>
-            </div>
-            <div>
-              <span class="bold">Description:</span><%= book.description[0,100] %><%= link_to '...[Read More]', dashboard_index_path %>
-            </div>
-            <div>
-              <a href="<%= dashboard_index_path %>"><button class="btn btn-outline-secondary dashboard-btn">Unread</button></a>
-            </div>
-            <div>
-              {BUTTON-delete}
-            </div>
+
           <% end %>
         </div>
 
@@ -75,7 +80,6 @@
       <% end %>
 
   </div>
-
 
 
 </div>

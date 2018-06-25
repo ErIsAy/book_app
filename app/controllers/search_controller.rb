@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
-    def index
-    end
+  def index
+  end
 
 #    def search
 #          pathname = CGI::escape(params[:search])
@@ -20,30 +20,35 @@ class SearchController < ApplicationController
 #    end
 
 
-    def search
-        google_books = GoogleBooks.search(params[:search]).first(3)
+  def search
+      google_books = GoogleBooks.search(params[:search]).first(3)
 
-        @books = [];
+      @books = [];
 
-        google_books.each do |book|
-          book_history = BookHistory.create(
-            title: book.title,
-            author: book.authors,
-            description: book.description,
-            image_url: book.image_link,
-            isbn: book.isbn
-          )
+      google_books.each do |book|
+        book_history = BookHistory.create(
+          title: book.title,
+          author: book.authors,
+          description: book.description,
+          image_url: book.image_link,
+          isbn: book.isbn
+        )
 
-          @books << book_history
-        end
-        render :index
-    end
+        @books << book_history
+      end
+      render :index
+  end
+
+  def destroy
+    ReadBook.destroy(params[:id])
+    render json: {status: 'success', message: 'Book was successfully removed'}
+  end
 
 
-    # my_books_controller
-     def create_from_book_history
+  # my_books_controller
+   def create_from_book_history
 
-         
-     end
+       
+   end
     
 end
