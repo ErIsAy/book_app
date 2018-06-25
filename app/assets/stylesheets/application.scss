@@ -20,14 +20,63 @@
 .width-300{
   width: 300px;
 }
- .bold {
-  font-weight: bold;
- }
 
- .italic {
+.bold {
+  font-weight: bold;
+}
+
+.italic {
   font-style: italic;
- }
+}
+
+.center {
+  text-align: center;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.float-right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.welcome-element {
+  margin: 20px 0;
+}
+
+.dash-col {
+  border-right: 1px solid #c0c0c0;
+}
 
 .dashboard-btn {
-  margin: 10px auto;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.my-book-div, .read-book-div {
+  margin: 5px 0;
+  padding: 30px 5px;
+}
+
+.my-book-div:hover, .read-book-div:hover {
+  background-color: #eaeaea
+}
+
+.dash-img {
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto;
 }

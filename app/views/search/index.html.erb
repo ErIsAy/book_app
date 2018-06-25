@@ -7,28 +7,49 @@
   <% end %>
 </div>
 </div>
+
 <div class="row">
+    <% if @books.present? %>
+        <% @books.each do |book| %>
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <%= image_tag book.image_url, style: 'width : 160px ; height: 180px ' %>
 
-<% if @books.present? %>
-  <% @books.each do |book| %>
-    <div class="col-4">
-      <%= image_tag book.image_url %>
-      Title:
-      <%= book.title %><br>
-      Author:
-      <%= book.author %><br>
-      Description:
-      <%= book.description ? book.description.truncate_words(200, separator: '') : 'N/A' %>
-      <%= link_to 'read more', book.description %><br>
-      <br>
-      <%= button_to 'Add to My Books', create_from_book_history_path(book.id) %>
-    </div>
-  <% end %>
-<%else%>
-  <p>
-    No new results to add.</p>
-<% end %>
+                <span class = 'bold'>Title:</span>
+                <%= book.title %><br>
 
-<div class="col-4"></div>
-<div class="col-4"></div>
+                <span class = 'bold'>Author:</span>
+                <%= book.author %><br>
+
+                <span class = 'bold'>Description:</span>
+                <% if book.description %>    
+                    <% if book.description.size > 200 %>
+                        <span class="truncated-paragraph-<%= book.isbn %>">
+                        <%= book.description ? book.description.truncate_words(200, separator: '') : 'N/A' %>
+                        <a href="#" class="read-more-<%= book.isbn %>">Read More</a>
+                        </span>
+                        <span class="normal-paragraph-<%= book.isbn %>" style="display: none;">
+                        <%= book.description %>
+                        <a href="#" class="read-less-<%= book.isbn %>">Hide</a>
+                        </span>
+
+                    <% else %>
+                        <%= book.description %>
+                    <% end %>
+
+                    <% else %>
+                        <p> N/A </p>
+                <% end %>
+
+                <!--      <%#= book.description ? book.description.truncate_words(200, separator: '') : 'N/A' %>-->
+                <%#= link_to 'read more', book.description %><br>
+                <br>
+                <%= button_to 'Add to My Books', create_from_book_history_path(book.id) %>
+            </div>
+        <% end %>
+
+    <%else%>
+        <p>No new results to add.</p>
+    <% end %>
+
+
 </div>

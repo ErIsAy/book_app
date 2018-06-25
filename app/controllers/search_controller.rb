@@ -27,7 +27,7 @@ class SearchController < ApplicationController
 
 
       google_books.each do |book|
-        # next if BookHistory.where(isbn: book.isbn).present?
+#         next if BookHistory.where(isbn: book.isbn).present?
         book_history = BookHistory.create(
           title: book.title,
           author: book.authors,
