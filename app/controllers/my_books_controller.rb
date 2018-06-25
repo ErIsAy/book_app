@@ -38,7 +38,8 @@ class MyBooksController < ApplicationController
       description: book_history.description,
       image_url: book_history.image_url,
       isbn: book_history.isbn,
-      user_id: current_user.id
+      user_id: current_user.id,
+      book_history_id: book_history.id
     )
     redirect_to dashboard_index_path
   end
