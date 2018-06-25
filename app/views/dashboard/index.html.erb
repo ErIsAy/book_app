@@ -41,7 +41,7 @@
                   <div class="col-12">
                     <br/>
                     <span class="bold">Status:
-                    </span><%= best_in_place book, :status, type: :select, collection: [["", "Unspecified"], ["To Read", "To Read"], ["In Progress", "In Progress"], ["Read","Read"]] %> <%= image_tag image_path("edit.png"), alt: "edit image" %> <%= link_to 'Delete', book, class: 'delete-my-book btn btn-outline-danger dashboard-btn btn-sm float-right' %><br/>
+                    </span><%= best_in_place book, :status, type: :select, collection: [["", "Unspecified"], ["To Read", "To Read"], ["In Progress", "In Progress"], ["Read","Read"]] %> <%= image_tag image_path("edit.png"), alt: "edit image" %> <%= link_to 'Show', book_history_path(:id => book.book_history_id) , class: 'btn btn-outline-success dashboard-btn btn-sm' %><%= link_to 'Delete', book, class: 'delete-my-book btn btn-outline-danger dashboard-btn btn-sm float-right' %><br/>
                     <small class="clear">Click status above to edit</small>
                   </div>
                 </div>

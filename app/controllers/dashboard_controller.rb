@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  before_action :authenticate_user!
   respond_to :html, :json
   def index
     @user = current_user
