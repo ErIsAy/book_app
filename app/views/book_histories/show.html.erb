@@ -40,3 +40,14 @@
   
   </div>
 </div>
+<div class="row">
+    Reviews:
+    <% if @book.reviews %>
+        <% @book.reviews.each do |review| %>
+
+            <%= review.comment %>
+        <% end %>
+    <% else %>
+        <p>Sorry, no review is available</p>
+    <% end %>
+</div>

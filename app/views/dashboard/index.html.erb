@@ -98,6 +98,7 @@
                   <div class="row">
                     <div class="col-12">
                       <%= link_to 'More Details', book_history_path(:id => book.book_history_id) , class: 'btn btn-outline-success dashboard-btn btn-block' %>
+                      <%= link_to 'Write Review', new_book_history_review_path(book.book_history_id), class: 'btn btn-warning dashboard-btn clear btn-block' %>
                     </div>
                   </div>
 
@@ -108,7 +109,6 @@
                       </span><%= best_in_place book, :status, type: :select, collection: [["", "Unspecified"], ["To Read", "To Read"], ["In Progress", "In Progress"], ["Read","Read"]] %> <%= image_tag image_path("edit.png"), alt: "edit image" %> <%= link_to 'Delete', book, class: 'delete-read-book btn btn-outline-danger dashboard-btn btn-sm float-right' %><br/>
                       <small class="clear">Click status above to edit</small>
                     </div>
-                    
                   </div>
 
                 </div>
