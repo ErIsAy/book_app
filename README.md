@@ -1,12 +1,25 @@
-# Startup Crunch
+# Startup Crunch Project: Boogle Book Search App
+A simple web application that allows you to search and retrieve book information, as well as to save books to your profile.
+
+
+## Features
+* Home page displays three random books from the app search history
+* Search an extensive online API for book information
+* Returns the top three results, allowing you to view more details
+* If available, view an embedded preview of the book
+* Create a user account to save books and update status (To Read, In Progress, Finished Reading)
+* Write, save, and display user reviews based on read books
+
 
 ## Built with:
-* Ruby on Rails v.5.2.0
-* ActiveRecord
-* PostgreSQL
-* User Authentication via Devise gem
-* Deploying to Heroku
-* Bootstrap
+* [Ruby on Rails v.5.2.0](https://rubyonrails.org/)
+* [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html)
+* [PostgreSQL](https://www.postgresql.org/)
+* [GoogleBooks API](https://developers.google.com/books/) via [GoogleBooks gem](https://github.com/zeantsoi/GoogleBooks)
+* User Authentication via [Devise gem](https://github.com/plataformatec/devise)
+* RESTful jQuery based AJAX inplace editing via [Best In Place gem](https://github.com/bernat/best_in_place)
+* [Deploying to Heroku](https://devcenter.heroku.com/categories/deployment)
+* [Bootstrap](https://getbootstrap.com/)
 
 
 ### Goal:
