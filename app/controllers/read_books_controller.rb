@@ -1,9 +1,10 @@
 class ReadBooksController < ApplicationController
+  before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: [:destroy]
+  
   def index
   end
 
   def destroy
-    MyBook.destroy(params[:id])
-    render json: { status: 'boom success', message: 'Read book was successfully deleted' }
   end
 end
