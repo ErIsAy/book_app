@@ -43,8 +43,8 @@
           <li class="nav-item"><%= link_to t('auth.sign_out'), destroy_user_session_path, method: 'delete', class: 'btn btn-outline-light' %></li>
 
         <%else%>
-          <li class="nav-item"><%= link_to t('auth.sign_in'), new_user_session_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to t('auth.sign_up'), new_user_registration_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to t('auth.sign_in'), new_user_session_path, class: 'nav-btn btn btn-outline-light' %></li>
+          <li class="nav-item"><%= link_to t('auth.sign_up'), new_user_registration_path, class: 'nav-btn btn btn-outline-light' %></li>
         <%end%>
       </ul>
     </div>
