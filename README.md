@@ -8,6 +8,7 @@ A simple web application that allows you to search and retrieve book information
 * Returns the top three results, allowing you to view more details
 * If available, view an embedded preview of the book
 * Create a user account to save books and update status (To Read, In Progress, Finished Reading)
+* Write, save, and display user reviews based on read books
 
 
 ## Built with:
