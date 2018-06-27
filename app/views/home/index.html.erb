@@ -26,7 +26,7 @@
             <span class='bold'>By
             </span><%= book.author %>
             <p class="mt-3"><%= book.description ? book.description.truncate_words(60, separator: '') : "Sorry, description not available" %>.</p>
-            <%= link_to "Preview", book, class: "btn btn-primary btn-block align-self-end" %>
+            <%= link_to "Preview", book, class: "btn btn-primary btn-block align-self-end mb-3" %>
           </div>
 
         </div>
