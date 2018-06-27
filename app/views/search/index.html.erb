@@ -1,73 +1,81 @@
 <% if @books.nil? %>
-  <div class="row mt-5">
 
+  <!-- search bar while no results -->
+  <div class="row mt-5">
     <div class="col col-offset text-center mt-5">
       <a href="/search">
-        <%= image_tag image_path("logo.png"), alt: "lololol",:class => "width-300 mx-auto d-block mt-5" %><br/>
+        <%= image_tag image_path("logo.png"), alt: "logo img",:class => "width-300 mx-auto d-block mt-5" %><br/>
       </a>
-
-      <%= form_tag search_results_path, method: :get, id: "search-form", class: '' do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Books",class: "form-control" %>
-      <%= submit_tag "Search", class: 'btn btn-secondary mt-4' %>
-    <% end %>
+      <%= form_tag search_results_path, method: :get, id: "search-form", class: "" do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Books",class: "form-control" %>
+        <%= submit_tag "Search", class: "btn btn-secondary mt-4" %>
+      <% end %>
+    </div>
   </div>
-</div>
+
 <%else%>
-<div class="row">
-  <div class="col-2 col-md-2 col-sm-2 col-xs-3 col-md-offset-2 text-center mt-4"></div>
 
-  <div class=" col-6 col-md-6 col-sm-6 col-xs-3 col-md-offset-6 text-center">
-    <div class=""></div>
-    <%= form_tag search_results_path, method: :get, id: "search-form", class: 'mt-4' do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Books",class: "form-control glass"%>
-  <% end %>
-  </div>
+  <!-- search bar while results exist -->
+  <div class="row">
+    <div class="col-2 col-md-2 col-sm-2 col-xs-3 col-md-offset-2 text-center mt-4"></div>
+    <div class=" col-6 col-md-6 col-sm-6 col-xs-3 col-md-offset-6 text-center">
+      <div class=""></div>
+      <%= form_tag search_results_path, method: :get, id: "search-form", class: "mt-4" do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Books", class: "form-control glass" %>
+      <% end %>
+    </div>
 
-  <div class="col-3 col-md-3 col-sm-3 col-md-offset-3 text-center mt-4 float-left">
-    <div class="float-left">
-      <%= submit_tag "Search", class: 'btn btn-secondary btn-sm mt-1 float-left'%>
+    <div class="col-3 col-md-3 col-sm-3 col-md-offset-3 text-center mt-4 float-left">
+      <div class="float-left">
+        <%= submit_tag "Search", class: "btn btn-secondary btn-sm mt-1 float-left"%>
+      </div>
     </div>
   </div>
+
 <%end%>
-</div>
 
+<!-- results -->
 <div class="row">
-<% if @books.present? %>
-<% @books.each do |book| %>
-  <div class="col-md-4 col-md-offset-4 text-center mt-5">
-    <div class="col-md-12">
-      <%= image_tag book.image_url, style: 'width : 160px ; height: 180px ' %>
+  <% if @books.present? %>
+    <% @books.each do |book| %>
 
-      <p class="bold"><%= book.title %></p>
-      <span class="bold">By</span>
-      <span class="italic"><%= book.author %></span>
-      <div class="mt-3">
-        <% if book.description %>
-          <% if book.description.size > 200 %>
-            <span class="truncated-paragraph-<%= book.isbn %>">
-              <%= book.description ? book.description.truncate_words(200, separator: '') : 'N/A' %>
-              <a href="#" class="read-more-<%= book.isbn %>">Read More</a>
-            </span>
-            <span class="normal-paragraph-<%= book.isbn %>" style="display: none;">
-              <%= book.description %>
-              <a href="#" class="read-less-<%= book.isbn %>">Read Less</a>
-            </span>
+      <div class="col-md-4 col-md-offset-4 text-center mt-5">
+        <div class="col-md-12">
 
-          <% else %>
-            <%= book.description %>
-          <% end %>
-        <% end %>
-      </div>
-      <div>
-        <%= link_to "Preview Book", book, class: 'btn btn-outline-primary btn-block mt-3' %>
-      </div>
-      <div>
-        <%= button_to 'Add to My Books', create_from_book_history_path(book.id), class: 'btn btn-primary mt-4 btn-block align-self-end' %>
-      </div>
-    </div>
+          <%= image_tag book.image_url, style: "width : 160px; height: 180px" %>
+          <p class="bold"><%= book.title %></p>
+          <span class="bold">By</span>
+          <span class="italic"><%= book.author %></span>
 
-  </div>
+          <div class="mt-3">
+            <% if book.description %>
+              <% if book.description.size > 200 %>
+                <span class="truncated-paragraph-<%= book.isbn %>">
+                  <%= book.description ? book.description.truncate_words(200, separator: "") : "N/A" %>
+                  <a href="#" class="read-more-<%= book.isbn %>">Read More</a>
+                </span>
+                <span class="normal-paragraph-<%= book.isbn %>" style="display: none;">
+                  <%= book.description %>
+                  <a href="#" class="read-less-<%= book.isbn %>">Read Less</a>
+                </span>
+
+              <% else %>
+                <%= book.description %>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div>
+            <%= link_to "Preview Book", book, class: "btn btn-outline-primary btn-block mt-3" %>
+          </div>
+          
+          <div>
+            <%= button_to "Add to My Books", create_from_book_history_path(book.id), class: "btn btn-primary mt-4 btn-block align-self-end" %>
+          </div>
+
+        </div>
+      </div>
+
+    <% end %>
   <% end %>
-<% end %>
-
 </div>

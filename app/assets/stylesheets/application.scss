@@ -19,6 +19,9 @@
 @import 'partials/variables';
 @import 'partials/mixins';
 
+/*
+ * preset classes
+ */
 .width-300{
   width: 300px;
 }
@@ -53,14 +56,25 @@
   float: right;
 }
 
+.float-left {
+  float: left;
+}
+
 .clear {
   clear: both;
 }
 
+
+/*
+ * nav
+ */
 .nav-btn {
   margin: 5px;
 }
 
+/*
+ * dashboard
+ */
 .welcome-element {
   margin: 20px 0;
 }
@@ -103,6 +117,9 @@
   padding: 2px;
 }
 
+/*
+ * preview
+ */
 .book-viewer {
   width: 85%;
   height: 800px;
@@ -112,8 +129,7 @@
 .comment{
     border: 1px solid $primaryBorderColor;
     border-radius: 5px;
-    width: 100%;
-    
+    width: 100%;   
 }
 
 .created{
@@ -125,6 +141,9 @@
     min-height: 670px;
 }
 
+/*
+ * search
+ */
 .glass{
   background-image: url("glass.svg");
   background-repeat: no-repeat;

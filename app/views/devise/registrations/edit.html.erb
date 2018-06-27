@@ -11,17 +11,17 @@
 
       <div class="field form-group">
         <%= f.label :email %><br/>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
 
       <div class="field form-group">
         <%= f.label :first_name %><br/>
-        <%= f.text_field :first_name, autofocus: true, autocomplete: "first name", class: 'form-control' %>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first name", class: "form-control" %>
       </div>
 
       <div class="field form-group">
         <%= f.label :last_name %><br/>
-        <%= f.text_field :last_name, autofocus: true, autocomplete: "last name", class: 'form-control' %>
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last name", class: "form-control" %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -31,8 +31,8 @@
 
       <div class="field form-group">
         <%= f.label :password %>
-        <i>(leave blank if you don't want to change it)</i><br/>
-        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+        <i>(leave blank if you don"t want to change it)</i><br/>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
         <% if @minimum_password_length %>
           <br/>
           <em><%= @minimum_password_length %>
@@ -42,13 +42,13 @@
 
       <div class="field form-group">
         <%= f.label :password_confirmation %><br/>
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
 
       <div class="field form-group">
         <%= f.label :current_password %>
         <i>(we need your current password to confirm your changes)</i><br/>
-        <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+        <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
       </div>
 
       <div class="actions">

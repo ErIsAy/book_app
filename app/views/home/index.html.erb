@@ -1,4 +1,5 @@
 <div class="mt-5">
+  <!-- header -->
   <div class="row">
     <div class="col col-offset text-center">
       <h2 class="mt-2 center">Welcome to our Book Search App!</h2>
@@ -12,7 +13,6 @@
         users are searching for</h4>
     </div>
   </div>
-  <!-- Header -->
   <div class="row mt-5"></div>
 
   <!-- center row -->
@@ -25,18 +25,16 @@
             <p class="bold"><%= book.title %></p>
             <span class='bold'>By
             </span><%= book.author %>
-
             <p class="mt-3"><%= book.description ? book.description.truncate_words(60, separator: '') : "Sorry, description not available" %>.</p>
-
             <%= link_to "Preview", book, class: "btn btn-primary btn-block align-self-end" %>
-
           </div>
 
         </div>
       <%end%>
     </div>
   </div>
-  <!-- Footer -->
+  
+  <!-- footer -->
   <div class="row"></div>
 
 </div>
