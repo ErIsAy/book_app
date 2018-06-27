@@ -102,6 +102,23 @@
 }
 
 .book-viewer {
-  width: 100%;
+  width: 85%;
   height: 800px;
+  margin: 0 auto;
+}
+
+.comment{
+    border: 1px solid $primaryBorderColor;
+    border-radius: 5px;
+    width: 100%;
+    
+}
+
+.created{
+    color: dimgrey;
+    font-size: 15px;
+}
+
+.reviews{
+    min-height: 670px;
 }

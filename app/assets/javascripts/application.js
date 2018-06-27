@@ -37,6 +37,19 @@ $(document).ready(function() {
         $(`.normal-paragraph-${elId($(this))}`).hide()
         $(`.truncated-paragraph-${elId($(this))}`).show()
     })
+    
+    
+     $('[class^="read-more"]').click(function(element) {
+        element.preventDefault()
+        $(`.truncated-review-${elId($(this))}`).hide()
+        $(`.normal-review-${elId($(this))}`).show()
+    })
+
+    $('[class^="read-less"]').click(function(element) {
+        element.preventDefault()
+        $(`.normal-review-${elId($(this))}`).hide()
+        $(`.truncated-review-${elId($(this))}`).show()
+    })
 
     function elId(element) {
         let elClassName = element.attr('class').split('-')
