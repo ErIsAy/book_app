@@ -17,19 +17,17 @@
   <div class="col-2 col-md-2 col-sm-2 col-xs-3 col-md-offset-2 text-center mt-4"></div>
 
   <div class=" col-6 col-md-6 col-sm-6 col-xs-3 col-md-offset-6 text-center">
-    <!-- <a href="/search"> <%= image_tag image_path("logo.png"), alt: "lololol",:class => "width-200 mx-auto d-block" %><br/> </a> -->
     <div class=""></div>
     <%= form_tag search_results_path, method: :get, id: "search-form", class: 'mt-4' do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Books",class: "form-control glass"%>
   <% end %>
-</div>
-
-<div class="col-3 col-md-3 col-sm-3 col-md-offset-3 text-center mt-4 float-left">
-  <div class="float-left">
-    <%= submit_tag "Search", class: 'btn btn-secondary btn-sm mt-1 float-left'%>
-
   </div>
-</div>
+
+  <div class="col-3 col-md-3 col-sm-3 col-md-offset-3 text-center mt-4 float-left">
+    <div class="float-left">
+      <%= submit_tag "Search", class: 'btn btn-secondary btn-sm mt-1 float-left'%>
+    </div>
+  </div>
 <%end%>
 </div>
 
@@ -41,8 +39,8 @@
       <%= image_tag book.image_url, style: 'width : 160px ; height: 180px ' %>
 
       <p class="bold"><%= book.title %></p>
-      <span class='bold'>By</span>
-      <%= book.author %>
+      <span class="bold">By</span>
+      <span class="italic"><%= book.author %></span>
       <div class="mt-3">
         <% if book.description %>
           <% if book.description.size > 200 %>
@@ -52,29 +50,24 @@
             </span>
             <span class="normal-paragraph-<%= book.isbn %>" style="display: none;">
               <%= book.description %>
-              <a href="#" class="read-less-<%= book.isbn %>">Hide</a>
+              <a href="#" class="read-less-<%= book.isbn %>">Read Less</a>
             </span>
 
           <% else %>
             <%= book.description %>
           <% end %>
-
-        <% else %>
-          <p>
-            N/A
-          </p>
         <% end %>
       </div>
-      <!-- <%#= book.description ? book.description.truncate_words(200, separator: '') : 'N/A' %>-->
-      <%#= link_to 'read more', book.description %>
+      <div>
+        <%= link_to "Preview Book", book, class: 'btn btn-outline-primary btn-block mt-3' %>
+      </div>
+      <div>
         <%= button_to 'Add to My Books', create_from_book_history_path(book.id), class: 'btn btn-primary mt-4 btn-block align-self-end' %>
       </div>
-
     </div>
-  <% end %>
 
-<%else%>
-  <!-- <p class="col col-offset text-center mt-5">No new results to add.</p> -->
+  </div>
+  <% end %>
 <% end %>
 
 </div>
