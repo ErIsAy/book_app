@@ -12,11 +12,16 @@
   <div class="col-12 m-1">
     <%= @book.description %>
   </div>
-  <div>
-    <a href = "#reviews" class="btn btn-info mt-1 mx-3">See what other readers said about this book</a>   
-  </div>
 </div>
-
+ 
+  <div class="row">
+    <div class="col-sm-6">
+      <a href = "#reviews" class="btn btn-info mt-1 mx-3 float-right">Read Reviews</a>   
+    </div>
+    <div class="col-sm-6">
+      <%= button_to "Add to My Books", create_from_book_history_path(@book.id), class: "btn btn-info mt-1 mx-3 float-left" %>
+    </div>
+  </div>
 <br />
 
 <!-- embedded viewer to preview book -->
