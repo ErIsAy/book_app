@@ -20,12 +20,16 @@
 //= require_tree .
 
 $(document).ready(function() {
-    // activating Best In Place
+    //
+    // activating Best In Place gem
+    //
     jQuery(".best_in_place").best_in_place();
     $('.best_in_place').bind("ajax:success", function() {
-        window.location.reload()
+        window.location.reload();
     });
-
+    //
+    // read more/read less
+    //
     $('[class^="read-more"]').click(function(element) {
         element.preventDefault()
         $(`.truncated-paragraph-${elId($(this))}`).hide()
@@ -55,5 +59,6 @@ $(document).ready(function() {
         let elClassName = element.attr('class').split('-')
         return elClassName[elClassName.length - 1]
     }
+
 
 });
