@@ -16,6 +16,8 @@
  *= require_self
  */
 
+@import 'partials/variables';
+@import 'partials/mixins';
 
 .width-300{
   width: 300px;
@@ -66,7 +68,7 @@
 }
 
 .dash-col {
-  border-right: 1px solid #c0c0c0;
+  border-right: 1px solid $primaryBorderColor;
 }
 
 .dashboard-btn {
@@ -79,13 +81,19 @@
 }
 
 .my-book-div:hover, .read-book-div:hover {
-  background-color: #eaeaea
+  background-color: $divHighlightColor;
 }
 
 .dash-img {
   width: 100%;
   max-width: 150px;
   margin: 0 auto;
+}
+
+.select-status {
+  border: 1px dotted $primaryBorderColor;
+  border-radius: 5px;
+  padding: 2px;
 }
 
 .book-viewer {
