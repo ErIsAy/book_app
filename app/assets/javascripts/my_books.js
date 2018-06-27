@@ -1,6 +1,8 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+
+// AJAX delete
 $(document).ready(function() {
   if ($('body.dashboard.index').length == 0) {
     return;

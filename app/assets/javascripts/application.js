@@ -20,6 +20,7 @@
 //= require_tree .
 
 $(document).ready(function() {
+    
     //
     // activating Best In Place gem
     //
@@ -27,38 +28,37 @@ $(document).ready(function() {
     $('.best_in_place').bind("ajax:success", function() {
         window.location.reload();
     });
+
     //
     // read more/read less
     //
     $('[class^="read-more"]').click(function(element) {
-        element.preventDefault()
-        $(`.truncated-paragraph-${elId($(this))}`).hide()
-        $(`.normal-paragraph-${elId($(this))}`).show()
-    })
+        element.preventDefault();
+        $(`.truncated-paragraph-${elId($(this))}`).hide();
+        $(`.normal-paragraph-${elId($(this))}`).show();
+    });
 
     $('[class^="read-less"]').click(function(element) {
-        element.preventDefault()
-        $(`.normal-paragraph-${elId($(this))}`).hide()
-        $(`.truncated-paragraph-${elId($(this))}`).show()
-    })
-    
+        element.preventDefault();
+        $(`.normal-paragraph-${elId($(this))}`).hide();
+        $(`.truncated-paragraph-${elId($(this))}`).show();
+    });
     
      $('[class^="read-more"]').click(function(element) {
-        element.preventDefault()
-        $(`.truncated-review-${elId($(this))}`).hide()
-        $(`.normal-review-${elId($(this))}`).show()
-    })
+        element.preventDefault();
+        $(`.truncated-review-${elId($(this))}`).hide();
+        $(`.normal-review-${elId($(this))}`).show();
+    });
 
     $('[class^="read-less"]').click(function(element) {
-        element.preventDefault()
-        $(`.normal-review-${elId($(this))}`).hide()
-        $(`.truncated-review-${elId($(this))}`).show()
-    })
+        element.preventDefault();
+        $(`.normal-review-${elId($(this))}`).hide();
+        $(`.truncated-review-${elId($(this))}`).show();
+    });
 
     function elId(element) {
-        let elClassName = element.attr('class').split('-')
-        return elClassName[elClassName.length - 1]
-    }
-
+        let elClassName = element.attr('class').split('-');
+        return elClassName[elClassName.length - 1];
+    };
 
 });

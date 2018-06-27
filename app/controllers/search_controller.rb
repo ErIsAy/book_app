@@ -5,26 +5,24 @@ class SearchController < ApplicationController
   end
 
   def search
-      google_books = GoogleBooks.search(params[:search]).first(3)
+    google_books = GoogleBooks.search(params[:search]).first(3)
 
-      @books = [];
+    @books = [];
 
-      google_books.each do |book|
-      # next if BookHistory.where(isbn: book.isbn).present?
-        book_history = BookHistory.create(
-          title: book.title,
-          author: book.authors,
-          description: book.description,
-          image_url: book.image_link,
-          isbn: book.isbn
-        )
-        @books << book_history
-      end
-      render :index
+    google_books.each do |book|
+    # next if BookHistory.where(isbn: book.isbn).present?
+      book_history = BookHistory.create(
+        title: book.title,
+        author: book.authors,
+        description: book.description,
+        image_url: book.image_link,
+        isbn: book.isbn
+      )
+      @books << book_history
+    end
+    render :index
   end
 
-  # my_books_controller
   def create_from_book_history
   end
-
 end

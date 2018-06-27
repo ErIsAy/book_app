@@ -4,67 +4,66 @@
     <title>BookApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-    <!-- Nav -->
+    <!-- nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
       <div class="container">
         <%if user_signed_in?%>
           <a class="navbar-brand" href="/">
-            <img src="/assets/logo.png" height="40" width="125" float:left;="float:left;"></h1>
-        </a>
-      <%else%>
-        <a class="navbar-brand" href="/">
-          <img src="/assets/logo.png" height="40" width="125" float:left;="float:left;"></h1>
-      </a>
-    <%end%>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse text-center" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-
-        <%if user_signed_in?%>
-          <li class="nav-item active">
-            <a class="nav-link" href="<%= search_path %>">Search
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-
-          <li class="nav-item active">
-            <a class="nav-link" href="<%= dashboard_index_path %>">Dashboard
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-
-          <li class="nav-item active"><%= link_to "Edit Profile", edit_user_registration_path, class: 'nav-link' %></li>
-
-          <li class="nav-item"><%= link_to t('auth.sign_out'), destroy_user_session_path, method: 'delete', class: 'btn btn-outline-light' %></li>
-
+            <img src="/assets/logo.png" height="40" width="125" class="float-left"></h1>
+          </a>
         <%else%>
-          <li class="nav-item"><%= link_to t('auth.sign_in'), new_user_session_path, class: 'nav-btn btn btn-outline-light' %></li>
-          <li class="nav-item"><%= link_to t('auth.sign_up'), new_user_registration_path, class: 'nav-btn btn btn-outline-light' %></li>
+          <a class="navbar-brand" href="/">
+            <img src="/assets/logo.png" height="40" width="125" class="float-left"></h1>
+          </a>
         <%end%>
-      </ul>
-    </div>
-  </div>
-</nav>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
 
-<!-- Content -->
-<div class="container">
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
-  <%= custom_bootstrap_flash %>
-  <%= yield %>
-</div>
-</body>
+            <%if user_signed_in?%>
+              <li class="nav-item active">
+                <a class="nav-link" href="<%= search_path %>">Search
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+
+              <li class="nav-item active">
+                <a class="nav-link" href="<%= dashboard_index_path %>">Dashboard
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+
+              <li class="nav-item active"><%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link" %></li>
+
+              <li class="nav-item"><%= link_to t("auth.sign_out"), destroy_user_session_path, method: "delete", class: "btn btn-outline-light" %></li>
+
+            <%else%>
+              <li class="nav-item"><%= link_to t("auth.sign_in"), new_user_session_path, class: "nav-btn btn btn-outline-light" %></li>
+              <li class="nav-item"><%= link_to t("auth.sign_up"), new_user_registration_path, class: "nav-btn btn btn-outline-light" %></li>
+            <%end%>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      <%= custom_bootstrap_flash %>
+      <%= yield %>
+    </div>
+    
+  </body>
 </html>

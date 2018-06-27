@@ -16,7 +16,7 @@
       <% if @books!=[] %>
         <div class="books-div">
           <% @books.each do |book| %>
-            <% next if book.status == 'Read' %>
+            <% next if book.status == "Read" %>
             <div class="row my-book-div no-margin">
 
               <div class="col-lg-4 center no-padding no-margin">
@@ -39,7 +39,7 @@
 
                 <div class="row">
                   <div class="col-12">
-                    <%= link_to 'Preview', book_history_path(:id => book.book_history_id) , class: 'btn btn-outline-success dashboard-btn btn-block' %>
+                    <%= link_to "Preview", book_history_path(:id => book.book_history_id) , class: "btn btn-outline-success dashboard-btn btn-block" %>
                   </div>
                 </div>
 
@@ -47,7 +47,7 @@
                   <div class="col-12">
                     <br/>
                     <span class="bold">Status:
-                    </span><%= best_in_place book, :status, type: :select, collection: [["", "Select a Status"], ["To Read", "To Read"], ["In Progress", "In Progress"], ["Read","Read"]], class: "select-status" %> <%= image_tag image_path("edit.png"), alt: "edit image" %> <%= link_to 'Delete', book, class: 'delete-my-book btn btn-outline-danger dashboard-btn btn-sm float-right' %><br/>
+                    </span><%= best_in_place book, :status, type: :select, collection: [["", "Select a Status"], ["To Read", "To Read"], ["In Progress", "In Progress"], ["Read","Read"]], class: "select-status" %> <%= image_tag image_path("edit.png"), alt: "edit image" %> <%= link_to "Delete", book, class: "delete-my-book btn btn-outline-danger dashboard-btn btn-sm float-right" %><br/>
                     <small class="clear">Click status above to edit</small>
                   </div>
                 </div>
@@ -97,8 +97,8 @@
 
                   <div class="row">
                     <div class="col-12">
-                      <%= link_to 'More Details', book_history_path(:id => book.book_history_id) , class: 'btn btn-outline-success dashboard-btn btn-block' %>
-                      <%= link_to 'Write Review', new_book_history_review_path(book.book_history_id), class: 'btn btn-warning dashboard-btn clear btn-block' %>
+                      <%= link_to "More Details", book_history_path(:id => book.book_history_id) , class: "btn btn-outline-success dashboard-btn btn-block" %>
+                      <%= link_to "Write Review", new_book_history_review_path(book.book_history_id), class: "btn btn-warning dashboard-btn clear btn-block" %>
                     </div>
                   </div>
 
@@ -106,7 +106,7 @@
                     <div class="col-12">
                       <br/>
                       <span class="bold">Status:
-                      </span><%= best_in_place book, :status, type: :select, collection: [["", "Unspecified"], ["To Read", "To Read"], ["In Progress", "In Progress"], ["Read","Read"]], class: "select-status" %> <%= image_tag image_path("edit.png"), alt: "edit image" %> <%= link_to 'Delete', book, class: 'delete-read-book btn btn-outline-danger dashboard-btn btn-sm float-right' %><br/>
+                      </span><%= best_in_place book, :status, type: :select, collection: [["", "Unspecified"], ["To Read", "To Read"], ["In Progress", "In Progress"], ["Read","Read"]], class: "select-status" %> <%= image_tag image_path("edit.png"), alt: "edit image" %> <%= link_to "Delete", book, class: "delete-read-book btn btn-outline-danger dashboard-btn btn-sm float-right" %><br/>
                       <small class="clear">Click status above to edit</small>
                     </div>
                   </div>
@@ -119,7 +119,6 @@
         <% else %>
           <h5>Oh no, it looks like you haven't finished any books yet. Get to reading!</h5>
         <% end %>
-
       </div>
 
     </div>

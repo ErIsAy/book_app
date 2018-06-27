@@ -1,26 +1,25 @@
-<div class="row show-book">
-    
-    <div class="col-12 m-1">
-      <h3 class="bold italic center"><%= @book.title %></h3>
-       <% unless @book.author.blank? %>
-        <h5 class="center"><span class="bold">by </span><%= @book.author %></h5>
-        <% end %>
-    </div>
-    <div class="col-12 center no-padding no-margin">
-      <%= image_tag @book.image_url, class: "show-img" %>
-    </div>
-    <div class="col-12 m-1">
-      <%= @book.description %>
-    </div>
-    <div>
-   <a href = '#reviews' class="btn btn-info mt-1 mx-3">See what other readers said about this book</a>   
-</div>
-
+<!-- basic book info -->
+<div class="row show-book"> 
+  <div class="col-12 m-1">
+    <h3 class="bold italic center"><%= @book.title %></h3>
+    <% unless @book.author.blank? %>
+      <h5 class="center"><span class="bold">by </span><%= @book.author %></h5>
+    <% end %>
+  </div>
+  <div class="col-12 center no-padding no-margin">
+    <%= image_tag @book.image_url, class: "show-img" %>
+  </div>
+  <div class="col-12 m-1">
+    <%= @book.description %>
+  </div>
+  <div>
+    <a href = "#reviews" class="btn btn-info mt-1 mx-3">See what other readers said about this book</a>   
+  </div>
 </div>
 
 <br />
 
-
+<!-- embedded viewer to preview book -->
 <div class="row">
   <div class="col-12">
     <h3 class="center italic">Book preview:</h3>
@@ -36,55 +35,57 @@
         var isbn = document.getElementById('viewerCanvas').getAttribute('data-isbn');
         viewer.load('ISBN:' + isbn, alertNotFound);
       }
-
       google.books.setOnLoadCallback(initialize);
     </script>
     
-    <div id="viewerCanvas" class="book-viewer" data-isbn="<%= @book.isbn %>"></div>
+    <!-- empty div where embedded viewer populates -->
+    <div id="viewerCanvas" class="book-viewer" data-isbn="<%= @book.isbn %>">
+    </div>
   
   </div>
 </div>
 
-<hr class = 'mt-5'>
+<hr class = "mt-5">
 
+<!-- book reviews -->
 <div class="reviews">
-<div id = 'reviews' class="row">
+  <div id = "reviews" class="row">
     <div class="col-12 mt-5">
-        <h3 class="center italic">Readers reviews:</h3>
+      <h3 class="center italic">Readers reviews:</h3>
     </div>
-</div>
-    
-<% if @book.reviews.any? %>
- 
-    <% @book.reviews.each do |review| %>
-        <div class="row">
-            <div class="col-md-2 col-md-offset-2"></div>
-            <div class = 'col-md-8 col-md-offset-8 comment m-3 py-1 px-3' >
-                <div class="italic created">
-                    <span class = 'bold'><%= User.find(review.user_id).first_name %> <%= User.find(review.user_id).last_name %></span>
-                    <p><%= review.created_at.to_formatted_s(:long) %></p>
-                </div>
-                <div class="comment-text">
-                    <% if review.comment.size > 200 %>
-                        <span class = 'truncated-review-<%= review.id %>'>
-                        <%= review.comment.truncate_words(200, separator: '') %>
-                        <a href="#" class="read-more-<%= review.id %>">Read More</a>
-                        </span>
+  </div>
 
-                        <span class="normal-review-<%= review.id %>" style="display: none;">
-                        <%= review.comment %>
-                        <a href="#" class="read-less-<%= review.id %>">Read Less</a>
-                        </span> 
-                    <% else %>
-                        <%= review.comment %>
-                    <% end %>
-                </div>
-            </div>
-            <div class="col-md-2 col-md-offset-2"></div>
+  <!-- if there are reviews, display -->
+  <% if @book.reviews.any? %>
+    <% @book.reviews.each do |review| %>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-2"></div>
+        <div class = "col-md-8 col-md-offset-8 comment m-3 py-1 px-3" >
+          <div class="italic created">
+            <span class = "bold"><%= User.find(review.user_id).first_name %> <%= User.find(review.user_id).last_name %></span>
+            <p><%= review.created_at.to_formatted_s(:long) %></p>
+          </div>
+          <div class="comment-text">
+            <% if review.comment.size > 200 %>
+              <span class = "truncated-review-<%= review.id %>">
+              <%= review.comment.truncate_words(200, separator: "") %>
+              <a href="#" class="read-more-<%= review.id %>">Read More</a>
+              </span>
+              <span class="normal-review-<%= review.id %>" style="display: none;">
+                <%= review.comment %>
+                <a href="#" class="read-less-<%= review.id %>">Read Less</a>
+              </span> 
+            <% else %>
+              <%= review.comment %>
+            <% end %>
+          </div>
         </div>
+        <div class="col-md-2 col-md-offset-2"></div>
+      </div>
     <% end %>
-<% else %>
-    <p class= 'italic bold py-1 px-3 mt-3 ml-4'>Sorry, no review has been left yet</p>
-<% end %>
+  <!-- if there are no reviews, show message -->
+  <% else %>
+      <p class= "italic bold py-1 px-3 mt-3 ml-4">Sorry, no review has been left yet</p>
+  <% end %>
 </div>
 
