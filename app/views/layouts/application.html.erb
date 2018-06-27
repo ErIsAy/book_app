@@ -14,11 +14,12 @@
       <div class="container">
         <%if user_signed_in?%>
           <a class="navbar-brand" href="/">
-            <img src="/assets/logo.png" height="40" width="125" class="float-left"></h1>
+            <!-- <img src="logo.png" height="40" width="125" class="float-left"> -->
+            <%= image_tag image_path("logo.jpg"), alt: "logo image", height: "40" width: "125", class: "float-left" %>
           </a>
         <%else%>
           <a class="navbar-brand" href="/">
-            <img src="/assets/logo.png" height="40" width="125" class="float-left"></h1>
+            <img src="logo.png" height="40" width="125" class="float-left">
           </a>
         <%end%>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
