@@ -14,7 +14,7 @@
 //= require bootstrap/dist/js/bootstrap.min
 //= require rails-ujs
 //= require jquery.purr
-//= require toastr/build/toastr.min.js
+//= require toastr/build/toastr.min
 //= require best_in_place
 //= require activestorage
 //= require_tree .
