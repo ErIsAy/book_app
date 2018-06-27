@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post '/create_from_book_history/:book_history_id', to: 'my_books#create_from_book_history', as: :create_from_book_history
 
   resources :book_histories, only: [:show] do
-      resources :reviews, only: [:new, :create]
+      resources :reviews, only: [:new, :create, :edit]
   end
   resources :dashboard
   resources :my_books
