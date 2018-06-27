@@ -11,6 +11,10 @@ A simple web application that allows you to search and retrieve book information
 * Write, save, and display user reviews based on read books
 
 
+## Heroku Deployment
+(https://boogle-group-project.herokuapp.com/)
+
+
 ## Built with:
 * [Ruby on Rails v.5.2.0](https://rubyonrails.org/)
 * [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html)
