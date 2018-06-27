@@ -15,12 +15,17 @@
  *= require_tree .
  *= require_self
  */
+.test{
+
+}
 
 
 .width-300{
   width: 300px;
 }
-
+.width-200{
+  width: 200px;
+}
 .bold {
   font-weight: bold;
 }

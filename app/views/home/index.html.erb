@@ -1,30 +1,40 @@
-<h2 class="mt-2 center">Welcome to our Book Search App!</h2>
-
-<h4 class="mt-2 center italic">See what 
-  <% if user_signed_in? %>
-    other 
-  <% else %>
-    our 
-  <% end %>
-    users are searching for:</h4>
 <div class="mt-5">
+  <div class="row">
+    <div class="col col-offset text-center">
+      <h2 class="mt-2 center">Welcome to our Book Search App!</h2>
 
+      <h4 class="mt-4 center italic">See what
+        <% if user_signed_in? %>
+          other
+        <% else %>
+          our
+        <% end %>
+        users are searching for</h4>
+    </div>
+  </div>
   <!-- Header -->
-  <div class="row"></div>
+  <div class="row mt-5"></div>
 
   <!-- center row -->
   <div class="row">
-    <% @books.each do |book| %>
-      <div class="col-md-4 col-md-offset-4 text-center">
-        <h4><%= book.title %></h4>
-        <p class="italic"><%= book.author %></p>
-        <img class="" src="<%=book.image_url%>" alt="Generic placeholder image" width="180" height="220">
-        <p class="mt-2"><%= book.description ? book.description.truncate_words(60, separator: '') : "Sorry, description not available" %>.</p>
-        <p>
-          <%= link_to "Preview", book, class: "btn btn-outline-info btn-block" %>
-        </p>
-      </div>
-    <%end%>
+    <div class="row">
+      <% @books.each do |book| %>
+        <div class="col-md-4 col-md-offset-4 text-center">
+          <div class="col-md-12">
+            <img class="" src="<%=book.image_url%>" alt="Generic placeholder image" width="180" height="220">
+            <p class="bold"><%= book.title %></p>
+            <span class='bold'>By
+            </span><%= book.author %>
+
+            <p class="mt-3"><%= book.description ? book.description.truncate_words(60, separator: '') : "Sorry, description not available" %>.</p>
+
+            <%= link_to "Preview", book, class: "btn btn-primary btn-block align-self-end" %>
+
+          </div>
+
+        </div>
+      <%end%>
+    </div>
   </div>
   <!-- Footer -->
   <div class="row"></div>
