@@ -12,7 +12,7 @@ A simple web application that allows you to search and retrieve book information
 
 
 ## Heroku Deployment
-(https://boogle-group-project.herokuapp.com/)
+https://boogle-group-project.herokuapp.com/
 
 
 ## Built with:
