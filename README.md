@@ -4,11 +4,16 @@ A simple web application that allows you to search and retrieve book information
 
 ## Features
 * Home page displays three random books from the app search history
+![home page screenshot](/app/assets/images/home_page.png "home page screenshot")
 * Search an extensive online API for book information
+![book info screenshot](/app/assets/images/book_info.png "book info screenshot")
 * Returns the top three results, allowing you to view more details
 * If available, view an embedded preview of the book
+![book preview screenshot](/app/assets/images/book_preview.png "book preview screenshot")
 * Create a user account to save books and update status (To Read, In Progress, Finished Reading)
+![book review screenshot](/app/assets/images/book_review.png "book review screenshot")
 * Write, save, and display user reviews based on read books
+![dashboard screenshot](/app/assets/images/dashboard.png "dashboard screenshot")
 
 
 ## Heroku Deployment
